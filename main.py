@@ -27,11 +27,17 @@ class Generator:  # создаем класс-генератор
 
 
 def main():  # создаем главную функцию для выаполнения кода
-    generator = Generator(4, 5)
+    generator = Generator(5, 5)
 
-    print(f'Созданный массив: {generator.generated_list}')
-    print(f'Отсортированный массив: {generator.return_sorted()}')
-    print(f'Отсортированный в обратную сторону массив: {generator.return_sorted(reverse=True)}')
+    returned_list = generator.generated_list
+    sorted_list = generator.return_sorted()
+    reversed_list = generator.return_sorted(reverse=True)
+
+    print(f'Созданный массив: {returned_list}')
+    print(f'Отсортированный массив: {sorted_list}')
+    print(f'Отсортированный в обратную сторону массив: {reversed_list}')
+
+    assert (sorted_list == reversed_list).all()  # проверка на совпадение массивов, отсортированных по возрастанию и по убыванию
 
     
 if __name__ == '__main__':  # если файл запущен как главный, запускаем программу
